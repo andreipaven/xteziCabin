@@ -5,4 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   server: { host: "0.0.0.0", port: 4000 },
+  build: {
+    chunkSizeWarningLimit: 1000, // reduce la 1MB ca să vezi ce pachete sunt mari
+  },
 });
