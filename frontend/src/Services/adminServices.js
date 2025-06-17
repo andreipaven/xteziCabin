@@ -1,3 +1,5 @@
+import { config } from "dotenv";
+
 require("dotenv").config();
 const port = process.env.PORT || 3000;
 const ip = process.env.MY_IP;
