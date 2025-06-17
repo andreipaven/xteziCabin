@@ -1,0 +1,28 @@
+
+.rdp-root{
+    --rdp-accent-color:deepskyblue;
+    --rdp-range_middle-background-color: #00ffd2;
+    --rdp-animation_duration:.4s;
+    --rdp-today-color: #07e313;
+
+
+}
+.rdp-today:not(.rdp-outside) {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.4em;
+    &:focus{
+        border:none;
+    }
+}
+
+.blocked-day {
+    background-color: #ff0000 !important;
+    color: white !important;
+    pointer-events: none;
+    border-radius: 20em;
+    opacity: 0.9;
+}

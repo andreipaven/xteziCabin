@@ -1,0 +1,37 @@
+
+.PhoneInputInput {
+ font-size: 1em;
+    padding:0.5em;
+    border: transparent;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    &:focus {
+        outline: none   ;
+    }
+
+}
+
+.Toastify__progress-bar {
+    --toastify-color-progress-light:linear-gradient(to right,black 10%,white 90%);
+    --toastify-color-progress-warning:linear-gradient(to right,black  20%,#c5c500 80%);
+    --toastify-color-progress-error:linear-gradient(to right,black  20%, #ff0000 80%);
+    --toastify-color-progress-bgo: 0;
+}
+
+.Toastify__toast-icon {
+    --toastify-icon-color-warning: #eaea00 !important;
+}
+
+.Toastify__progress-bar-theme--colored.Toastify__progress-bar{
+    background: red;
+}
+
+.Toastify__toast-theme--light{
+    color: black!important;
+
+}.Toastify__toast-theme--dark{
+    color: white!important;
+    border-radius: .3em!important;
+
+}
+
