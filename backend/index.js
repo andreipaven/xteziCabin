@@ -9,6 +9,7 @@ const emailRoutes = require("./routes/email");
 //PORT
 const app = express();
 const port = process.env.PORT || 3000;
+const frontendPort = process.env.FRONTEND_PORT;
 const ip = process.env.MY_IP;
 
 //CORS
@@ -18,7 +19,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "http://localhost:4173",
-      `https://${ip}:${port}`,
+      `https://${ip}:${frontendPort}`,
     ],
     credentials: true,
   }),
