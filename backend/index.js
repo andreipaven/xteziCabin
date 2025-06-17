@@ -9,12 +9,17 @@ const emailRoutes = require("./routes/email");
 //PORT
 const app = express();
 const port = process.env.PORT || 3000;
+const ip = process.env.MY_IP;
 
 //CORS
 const cors = require("cors");
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:4173"],
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:4173",
+      `https://${ip}:${port}`,
+    ],
     credentials: true,
   }),
 );
@@ -30,5 +35,5 @@ app.use("/api/booking", bookingRoutes);
 app.use("/api/email", emailRoutes);
 
 app.listen(port, "0.0.0.0", () => {
-  console.log(`The server running on http://localhost:${port}`);
+  console.log(`The server running on https://${ip}:${port}`);
 });

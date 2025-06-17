@@ -1,6 +1,10 @@
+require("dotenv").config();
+const port = process.env.PORT || 3000;
+const ip = process.env.MY_IP;
+
 export const fetchLoginAdmin = async (usernameInput, passwordInput) => {
   try {
-    const response = await fetch("http://localhost:5000/api/admin/login", {
+    const response = await fetch(`https://${ip}:${port}/api/admin/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +30,7 @@ export const fetchLoginAdmin = async (usernameInput, passwordInput) => {
 
 export const fetchCheckAdmin = async () => {
   try {
-    const response = await fetch("http://localhost:5000/api/admin/check-auth", {
+    const response = await fetch(`https://${ip}:${port}/api/admin/check-auth`, {
       method: "GET",
       credentials: "include",
     });

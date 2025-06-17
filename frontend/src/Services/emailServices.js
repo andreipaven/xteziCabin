@@ -1,7 +1,11 @@
+require("dotenv").config();
+const port = process.env.PORT || 3000;
+const ip = process.env.MY_IP;
+
 export const fetchSendBookingEmail = async (userEmail, messageEmail) => {
   try {
     const response = await fetch(
-      "http://localhost:5000/api/email/send-email-booking",
+      `https://${ip}:${port}/api/email/send-email-booking`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

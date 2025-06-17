@@ -1,6 +1,10 @@
+require("dotenv").config();
+const port = process.env.PORT || 3000;
+const ip = process.env.MY_IP;
+
 export const fetchAddBooking = async (body) => {
   try {
-    const response = await fetch("http://localhost:5000/api/booking/add", {
+    const response = await fetch(`https://${ip}:${port}/api/booking/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +24,7 @@ export const fetchAddBooking = async (body) => {
 
 export const fetchGetBookings = async () => {
   try {
-    const response = await fetch("http://localhost:5000/api/booking/get", {
+    const response = await fetch(`https://${ip}:${port}/api/booking/get`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
