@@ -1,8 +1,5 @@
-import { config } from "dotenv";
-
-require("dotenv").config();
-const port = process.env.PORT || 3000;
-const ip = process.env.MY_IP;
+const ip = import.meta.env.MY_IP;
+const port = import.meta.env.PORT || 3000;
 
 export const fetchLoginAdmin = async (usernameInput, passwordInput) => {
   try {
