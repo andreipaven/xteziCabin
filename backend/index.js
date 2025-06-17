@@ -35,6 +35,6 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/booking", bookingRoutes);
 app.use("/api/email", emailRoutes);
 
-// app.listen(port, "0.0.0.0", () => {
-//   console.log(`The server running on https://${ip}:${port}`);
-// });
+app.listen(port, () => {
+  console.log(`The server running on https://${ip}:${port}`);
+});
