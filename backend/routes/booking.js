@@ -45,7 +45,8 @@ router.post("/add", async (req, res) => {
 
 router.post("/get", async (req, res) => {
   try {
-    const sql = "SELECT * FROM bookings";
+    const sql =
+      "SELECT DISTINCT ON (start_date, end_date) * FROM bookings ORDER BY start_date, end_date, id_booking;\n";
     const results = await db.query(sql);
 
     if (!results) {

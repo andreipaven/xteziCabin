@@ -143,12 +143,12 @@ export default function DateDayPicker({ onSelectDate }) {
           allBookedDays.push(...days);
         });
       } else {
-        console.log("aici");
         console.log(result.message);
       }
 
       const uniqueDays = [...new Set(allBookedDays)];
 
+      console.log(uniqueDays);
       if (!justOneTrim.current && uniqueDays.length > 0) {
         const { trimmedDays, exactTwoDayRanges } = trimRangeEnds(uniqueDays);
         setUniqueBookedDaysForCalendar(trimmedDays);
