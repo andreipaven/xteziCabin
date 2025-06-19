@@ -112,7 +112,6 @@ export default function DateDayPicker({ onSelectDate }) {
       } else if (range.length > 2) {
         trimmedDays.push(...range.slice(1, -1)); // mai lung → păstrăm fără capete
       }
-      // range.length === 1 → ignorăm complet
     });
 
     return {
@@ -136,6 +135,11 @@ export default function DateDayPicker({ onSelectDate }) {
   };
 
   useEffect(() => {
+    // console.log("refresh intern");
+    console.log(twoConsecutiveDays);
+  }, [twoConsecutiveDays]);
+
+  useEffect(() => {
     fetchGetBookings().then((result) => {
       if (result.success) {
         result.result.rows.forEach((booking) => {
@@ -146,9 +150,11 @@ export default function DateDayPicker({ onSelectDate }) {
         console.log(result.message);
       }
 
-      const uniqueDays = [...new Set(allBookedDays)];
+      const uniqueDaysStrings = [
+        ...new Set(allBookedDays.map((d) => d.toDateString())),
+      ];
+      const uniqueDays = uniqueDaysStrings.map((s) => new Date(s));
 
-      console.log(uniqueDays);
       if (!justOneTrim.current && uniqueDays.length > 0) {
         const { trimmedDays, exactTwoDayRanges } = trimRangeEnds(uniqueDays);
         setUniqueBookedDaysForCalendar(trimmedDays);
