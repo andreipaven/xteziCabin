@@ -43,12 +43,12 @@ db.connect()
     console.log("✅ Connected to the PostgreSQL database");
 
     app.listen(port, () => {
-      console.log(`🚀 Server running on https://${ip}:${port}`);
+      console.log(`🚀 Server running on https://${ip}`);
     });
   })
   .catch((err) => {
     console.error("❌ Failed to connect database:", err.message);
-    process.exit(1); // oprește serverul dacă baza nu merge
+    process.exit(1);
   });
 
 app.get("/hia", (req, res) => {
