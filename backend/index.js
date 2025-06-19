@@ -9,6 +9,7 @@ const emailRoutes = require("./routes/email");
 //PORT
 const app = express();
 const port = process.env.PORT || 3000;
+
 const frontendPort = process.env.FRONTEND_PORT;
 const ip = process.env.MY_IP;
 
@@ -19,6 +20,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "http://localhost:4173",
+      "http://localhost:4000",
       `https://${ip}:${frontendPort}`,
     ],
     credentials: true,
@@ -32,13 +34,29 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/booking", bookingRoutes);
 app.use("/api/email", emailRoutes);
 
+//db connection
+
+const db = require("./db");
+
+db.connect()
+  .then(() => {
+    console.log("✅ Connected to the PostgreSQL database");
+
+    app.listen(port, () => {
+      console.log(`🚀 Server running on http://localhost:${port}`);
+    });
+  })
+  .catch((err) => {
+    console.error("❌ Failed to connect database:", err.message);
+    process.exit(1); // oprește serverul dacă baza nu merge
+  });
+
+app.get("/hia", (req, res) => {
+  res.json({ status: "Backend is working!" });
+});
 const path = require("path");
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 app.get(/^\/(?!api).*/, (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-});
-
-app.listen(port, () => {
-  console.log(`The server running on https://${ip}:${port}`);
 });

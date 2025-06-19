@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Booking = require("../models/Booking");
-const pool = require("../db");
+const db = require("../db");
 
 router.post("/add", async (req, res) => {
   try {
@@ -13,8 +13,12 @@ router.post("/add", async (req, res) => {
         .status(400)
         .json({ success: false, message: validation.errors });
     }
-    const sql =
-      "INSERT INTO bookings  (first_name, last_name, email, phone, start_date, end_date, number_peoples, price, status)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+
+    const sql = `
+      INSERT INTO bookings 
+      (first_name, last_name, email, phone, start_date, end_date, number_peoples, price, status)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    `;
 
     const values = [
       booking.firstName,
@@ -28,7 +32,8 @@ router.post("/add", async (req, res) => {
       booking.status,
     ];
 
-    await pool.execute(sql, values);
+    await db.query(sql, values);
+
     res
       .status(201)
       .json({ success: true, message: "Rezervare trimisa cu succes." });
@@ -41,7 +46,7 @@ router.post("/add", async (req, res) => {
 router.post("/get", async (req, res) => {
   try {
     const sql = "SELECT * FROM bookings";
-    const [results] = await pool.execute(sql);
+    const results = await db.query(sql);
 
     if (!results) {
       return res.status(500).json({

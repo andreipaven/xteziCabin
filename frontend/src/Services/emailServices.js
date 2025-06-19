@@ -1,10 +1,10 @@
-const ip = import.meta.env.MY_IP;
+const ip = import.meta.env.VITE_URL;
 const port = import.meta.env.PORT || 3000;
 
 export const fetchSendBookingEmail = async (userEmail, messageEmail) => {
   try {
     const response = await fetch(
-      `https://${ip}:${port}/api/email/send-email-booking`,
+      `http://${ip}:${port}/api/email/send-email-booking`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

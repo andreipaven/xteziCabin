@@ -1,4 +1,4 @@
-const ip = import.meta.env.MY_IP;
+const ip = import.meta.env.DB_HOST;
 const port = import.meta.env.PORT || 3000;
 
 export const fetchLoginAdmin = async (usernameInput, passwordInput) => {

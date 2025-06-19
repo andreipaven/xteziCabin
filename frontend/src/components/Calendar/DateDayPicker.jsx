@@ -138,7 +138,7 @@ export default function DateDayPicker({ onSelectDate }) {
   useEffect(() => {
     fetchGetBookings().then((result) => {
       if (result.success) {
-        result.result.forEach((booking) => {
+        result.result.rows.forEach((booking) => {
           const days = getDaysInRange(booking.start_date, booking.end_date);
           allBookedDays.push(...days);
         });
