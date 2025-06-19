@@ -52,7 +52,6 @@ export default function DateDayPicker({ onSelectDate }) {
 
       for (const rangePair of twoConsecutiveDays) {
         const [start, end] = rangePair.map((d) => new Date(d).getTime());
-
         if (start >= fromTime && end <= toTime) {
           return;
         }
@@ -136,7 +135,8 @@ export default function DateDayPicker({ onSelectDate }) {
 
   useEffect(() => {
     // console.log("refresh intern");
-    console.log(twoConsecutiveDays);
+    // console.log(twoConsecutiveDays);
+    // console.log(uniqueBookedDaysForCalendar);
   }, [twoConsecutiveDays]);
 
   useEffect(() => {
@@ -154,13 +154,16 @@ export default function DateDayPicker({ onSelectDate }) {
         ...new Set(allBookedDays.map((d) => d.toDateString())),
       ];
       const uniqueDays = uniqueDaysStrings.map((s) => new Date(s));
+      setUniqueBookedDaysForCalendar(uniqueDays);
 
-      if (!justOneTrim.current && uniqueDays.length > 0) {
-        const { trimmedDays, exactTwoDayRanges } = trimRangeEnds(uniqueDays);
-        setUniqueBookedDaysForCalendar(trimmedDays);
-        setTwoConsecutiveDays(exactTwoDayRanges);
-        justOneTrim.current = true;
-      }
+      console.log(uniqueDays);
+      // if (!justOneTrim.current && uniqueDays.length > 0) {
+      //   const { trimmedDays, exactTwoDayRanges } = trimRangeEnds(uniqueDays);
+      //
+      //   setUniqueBookedDaysForCalendar(trimmedDays);
+      //   setTwoConsecutiveDays(exactTwoDayRanges);
+      //   justOneTrim.current = true;
+      // }
     });
   }, []);
   return (
