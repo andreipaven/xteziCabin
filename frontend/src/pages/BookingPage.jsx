@@ -100,6 +100,13 @@ function BookingPage() {
   }
 
   useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      console.log("scroll sus");
+    }, 100);
+  }, []);
+
+  useEffect(() => {
     if (selected?.from && selected?.to) {
       const diffTime = Math.abs(selected.to - selected.from);
       const nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -157,8 +164,6 @@ function BookingPage() {
     setUiError(1);
     const { errorsA, rentalA } = validateForm();
 
-    console.log(errorsA);
-    console.log(rentalA);
     if (
       !errorsA.email &&
       errorsA.phone === null &&
@@ -195,9 +200,11 @@ function BookingPage() {
             fetchSendBookingEmail(inputEmail, messageEmail).then(
               (resultEmail) => {
                 if (resultEmail.success) {
-                  console.log(resultEmail);
                   setTimeout(() => {
                     notify(" Am trimis un email de confirmare!");
+                    setTimeout(() => {
+                      window.location.reload();
+                    }, 2500);
                   }, 2000);
                 } else {
                   console.log("Error to sent booking");
