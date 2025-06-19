@@ -43,7 +43,7 @@ db.connect()
     console.log("✅ Connected to the PostgreSQL database");
 
     app.listen(port, () => {
-      console.log(`🚀 Server running on http://localhost:${port}`);
+      console.log(`🚀 Server running on https://${ip}:${port}`);
     });
   })
   .catch((err) => {
