@@ -1,9 +1,8 @@
 const ip = import.meta.env.VITE_URL;
-const port = import.meta.env.VITE_PORT || 3000;
 
 export const fetchAddBooking = async (body) => {
   try {
-    const response = await fetch(`https://${ip}:${port}/api/booking/add`, {
+    const response = await fetch(`https://${ip}/api/booking/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +22,7 @@ export const fetchAddBooking = async (body) => {
 
 export const fetchGetBookings = async () => {
   try {
-    const response = await fetch(`https://${ip}:${port}/api/booking/get`, {
+    const response = await fetch(`https://${ip}/api/booking/get`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

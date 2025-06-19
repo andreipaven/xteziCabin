@@ -1,20 +1,16 @@
 const ip = import.meta.env.VITE_URL;
-const port = import.meta.env.VITE_PORT || 3000;
 
 export const fetchSendBookingEmail = async (userEmail, messageEmail) => {
   try {
-    const response = await fetch(
-      `https://${ip}:${port}/api/email/send-email-booking`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          to: userEmail,
-          subject: "Confirmare rezervare",
-          text: messageEmail,
-        }),
-      },
-    );
+    const response = await fetch(`https://${ip}/api/email/send-email-booking`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        to: userEmail,
+        subject: "Confirmare rezervare",
+        text: messageEmail,
+      }),
+    });
 
     const data = await response.json();
     return response.ok

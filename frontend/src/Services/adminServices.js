@@ -1,9 +1,8 @@
 const ip = import.meta.env.DB_HOST;
-const port = import.meta.env.VITE_PORT || 3000;
 
 export const fetchLoginAdmin = async (usernameInput, passwordInput) => {
   try {
-    const response = await fetch(`https://${ip}:${port}/api/admin/login`, {
+    const response = await fetch(`https://${ip}/api/admin/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +28,7 @@ export const fetchLoginAdmin = async (usernameInput, passwordInput) => {
 
 export const fetchCheckAdmin = async () => {
   try {
-    const response = await fetch(`https://${ip}:${port}/api/admin/check-auth`, {
+    const response = await fetch(`https://${ip}/api/admin/check-auth`, {
       method: "GET",
       credentials: "include",
     });

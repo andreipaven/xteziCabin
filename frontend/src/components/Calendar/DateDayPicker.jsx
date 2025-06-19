@@ -143,6 +143,7 @@ export default function DateDayPicker({ onSelectDate }) {
           allBookedDays.push(...days);
         });
       } else {
+        console.log("aici");
         console.log(result.message);
       }
 
