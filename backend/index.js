@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
-const cookieParser = require("cookie-parser");
+
 const adminRoutes = require("./routes/admin");
 const bookingRoutes = require("./routes/booking");
 const emailRoutes = require("./routes/email");
@@ -27,6 +27,9 @@ app.use(
   }),
 );
 app.use(express.json());
+
+//cookies
+const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 
 // routes

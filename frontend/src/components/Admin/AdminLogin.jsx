@@ -23,6 +23,7 @@ function AdminLogin() {
   useEffect(() => {
     const isLoggedIn = async () => {
       const result = await fetchCheckAdmin();
+
       if (result) {
         navigate("/admin-panel-macarie@23");
       }

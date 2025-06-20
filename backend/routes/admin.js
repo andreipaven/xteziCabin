@@ -27,7 +27,7 @@ router.post("/login", async (req, res) => {
   res
     .cookie("adminToken", token, {
       httpOnly: true,
-      secure: false, // set true în production (HTTPS)
+      secure: true, // set true în production (HTTPS)
       sameSite: "strict",
       maxAge: 5 * 60 * 60 * 1000, // 5h
     })
@@ -36,6 +36,7 @@ router.post("/login", async (req, res) => {
 
 router.get("/check-auth", (req, res) => {
   const token = req.cookies.adminToken;
+  console.log("aici");
 
   if (!token) return res.status(401).json({ message: "Not authenticated" });
 

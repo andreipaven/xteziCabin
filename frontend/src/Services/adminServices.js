@@ -1,4 +1,4 @@
-const ip = import.meta.env.DB_HOST;
+const ip = import.meta.env.VITE_URL;
 
 export const fetchLoginAdmin = async (usernameInput, passwordInput) => {
   try {
@@ -32,6 +32,8 @@ export const fetchCheckAdmin = async () => {
       method: "GET",
       credentials: "include",
     });
+
+    console.log(response);
 
     return response.ok;
   } catch (error) {
