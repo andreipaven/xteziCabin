@@ -12,7 +12,9 @@ function AdminPanel() {
       }
     };
 
-    isLoggedIn().catch("Teapa ca nu poti intra:))");
+    isLoggedIn().catch((err) => {
+      console.log("Error " + err);
+    });
   }, []);
 
   return <div>hellow lume</div>;

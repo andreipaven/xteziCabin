@@ -33,7 +33,12 @@ export const fetchCheckAdmin = async () => {
       credentials: "include",
     });
 
-    console.log(response);
+    if (response.ok) {
+      return true;
+    } else if (response.status === 401) {
+      console.log("teapa nu poti vedea:)))");
+      return false;
+    }
 
     return response.ok;
   } catch (error) {
