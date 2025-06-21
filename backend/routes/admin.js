@@ -42,36 +42,15 @@ router.get("/check-auth", (req, res) => {
 
   if (!token)
     return res
-      .status(200)
+      .status(201)
       .json({ success: false, message: "Not authenticated" });
 
   try {
     jwt.verify(token, JWT_SECRET);
     res.status(200).json({ success: true, message: "Authenticated" });
   } catch (e) {
-    res.status(200).json({ success: false, message: "Invalid token" });
+    res.status(201).json({ success: false, message: "Invalid token" });
   }
 });
-
-// router.get("/check-auth", (req, res) => {
-//   const token = req.cookies.adminToken;
-//   console.log("aici");
-//
-//   if (!token) {
-//     // Schimbare AICI: În loc de 401, returnăm 200 OK cu o stare explicită de neautentificare.
-//     // Browserul NU VA MAI AFISA EROAREA ROSIE.
-//     return res.status(200).json({ isAuthenticated: false, message: "Not authenticated" });
-//   }
-//
-//   try {
-//     jwt.verify(token, JWT_SECRET);
-//     // Răspuns de succes: utilizatorul este autentificat și valid.
-//     res.status(200).json({ isAuthenticated: true, message: "Authenticated" });
-//   } catch (e) {
-//     // Schimbare AICI: În loc de 401 pentru token invalid/expirat, returnăm 200 OK.
-//     // Browserul NU VA MAI AFISA EROAREA ROSIE.
-//     return res.status(200).json({ isAuthenticated: false, message: "Invalid token" });
-//   }
-// });
 
 module.exports = router;
