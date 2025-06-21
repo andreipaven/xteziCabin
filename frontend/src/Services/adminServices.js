@@ -14,7 +14,7 @@ export const fetchLoginAdmin = async (usernameInput, passwordInput) => {
       credentials: "include", // IMPORTANT for cookie-uri httpOnly
     });
     const data = await response.json();
-    if (!response.ok) {
+    if (!data.success) {
       // Login failed
       return { success: false, message: data.message };
     } else {
@@ -33,15 +33,13 @@ export const fetchCheckAdmin = async () => {
       credentials: "include",
     });
     const data = await response.json();
-    console.log(data);
-    if (response.ok) {
+
+    if (data.success) {
       return true;
-    } else if (response.status === 401) {
-      console.log("teapa nu poti vedea:)))");
+    } else {
+      console.log("ERROR 404 PAGE NOT FOUND!");
       return false;
     }
-
-    return true;
   } catch (error) {
     return false; // Network error, consider not logged in.
   }

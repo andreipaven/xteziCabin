@@ -11,16 +11,18 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
-    return res.status(400).json({ message: "Completează toate câmpurile." });
+    return res
+      .status(201)
+      .json({ success: false, message: "Completează toate câmpurile." });
   }
 
   if (username !== ADMIN_USERNAME) {
-    return res.status(401).json({ message: "Date invalide." });
+    return res.status(201).json({ success: false, message: "Date invalide." });
   }
 
   const match = await bcrypt.compare(password, ADMIN_PASSWORD);
   if (!match) {
-    return res.status(401).json({ message: "Date invalide." });
+    return res.status(201).json({ success: false, message: "Date invalide." });
   }
 
   const token = jwt.sign({ isAdmin: true }, JWT_SECRET, { expiresIn: "5h" });
@@ -31,7 +33,7 @@ router.post("/login", async (req, res) => {
       sameSite: "strict",
       maxAge: 5 * 60 * 60 * 1000, // 5h
     })
-    .json({ message: "Autentificare reușită." });
+    .json({ success: true, message: "Autentificare reușită." });
 });
 
 router.get("/check-auth", (req, res) => {
