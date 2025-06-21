@@ -24,6 +24,17 @@ export default function DateDayPicker({ onSelectDate }) {
   const [uniqueBookedDaysForCalendar, setUniqueBookedDaysForCalendar] =
     useState([]);
 
+  const capitalizeWeekdays = {
+    ...ro,
+    localize: {
+      ...ro.localize,
+      day: (n, opts) => {
+        const name = ro.localize.day(n, opts);
+        return name.charAt(0).toUpperCase() + name.slice(1);
+      },
+    },
+  };
+
   const handleSelect = (date) => {
     if (!date) {
       setSelected(undefined);
@@ -176,7 +187,7 @@ export default function DateDayPicker({ onSelectDate }) {
         }
       >
         <DayPicker
-          locale={ro}
+          locale={capitalizeWeekdays}
           weekStartsOn={1}
           animate
           mode="range"
