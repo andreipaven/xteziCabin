@@ -51,8 +51,10 @@ function Contact() {
         />,
       ],
       path: [
-        "https://www.facebook.com/profile.php?id=61568902723098&locale=ro_RO",
-        "https://www.instagram.com/a.laursu/",
+        // "https://www.facebook.com/profile.php?id=61568902723098&locale=ro_RO",
+        // "https://www.instagram.com/a.laursu/",
+        "https://www.google.com/",
+        "https://www.google.com/",
       ],
     },
   ];
