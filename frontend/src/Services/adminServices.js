@@ -32,7 +32,8 @@ export const fetchCheckAdmin = async () => {
       method: "GET",
       credentials: "include",
     });
-
+    const data = await response.json();
+    console.log(data);
     if (response.ok) {
       return true;
     } else if (response.status === 401) {
@@ -40,7 +41,7 @@ export const fetchCheckAdmin = async () => {
       return false;
     }
 
-    return response.ok;
+    return true;
   } catch (error) {
     return false; // Network error, consider not logged in.
   }
