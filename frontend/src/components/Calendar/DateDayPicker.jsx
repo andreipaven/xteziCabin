@@ -8,6 +8,7 @@ import useResponsive from "../Hooks/UseResponsive.jsx";
 import { notify } from "../Notifications/notifications.js";
 import "react-toastify/dist/ReactToastify.css";
 import { fetchGetBookings } from "../../Services/bookingService.js";
+import { ro } from "date-fns/locale";
 
 export default function DateDayPicker({ onSelectDate }) {
   const { isSmallScreen } = useResponsive();
@@ -175,6 +176,8 @@ export default function DateDayPicker({ onSelectDate }) {
         }
       >
         <DayPicker
+          locale={ro}
+          weekStartsOn={1}
           animate
           mode="range"
           selected={selected}
