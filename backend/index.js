@@ -46,7 +46,7 @@ db.connect()
     console.log("✅ Connected to the database");
 
     app.listen(port, () => {
-      console.log(`🚀 Server listening on port ?`);
+      console.log(`🚀 Server listening on port ${port}`);
     });
   })
   .catch((err) => {
