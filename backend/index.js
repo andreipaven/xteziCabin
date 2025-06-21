@@ -43,10 +43,10 @@ const db = require("./db");
 
 db.connect()
   .then(() => {
-    console.log("✅ Connected to the PostgreSQL database");
+    console.log("✅ Connected to the database");
 
     app.listen(port, () => {
-      console.log(`🚀 Server listening on port ${port}`);
+      console.log(`🚀 Server listening on port ?`);
     });
   })
   .catch((err) => {

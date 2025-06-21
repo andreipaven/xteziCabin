@@ -37,7 +37,6 @@ export const fetchCheckAdmin = async () => {
     if (data.success) {
       return true;
     } else {
-      console.log("ERROR 404 PAGE NOT FOUND!");
       return false;
     }
   } catch (error) {

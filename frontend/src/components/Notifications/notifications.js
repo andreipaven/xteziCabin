@@ -1,5 +1,4 @@
 import { toast } from "react-toastify";
-import { duration } from "@mui/material";
 
 // Notification
 export const notify = (message, type) => {

@@ -102,7 +102,6 @@ function BookingPage() {
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
-      console.log("scroll sus");
     }, 100);
   }, []);
 
@@ -208,13 +207,11 @@ function BookingPage() {
                   }, 2000);
                 } else {
                   console.log("Error to sent booking");
-                  console.log(resultEmail);
                 }
               },
             );
           } else {
             console.log("Error to sent booking");
-            console.log(result);
           }
         });
       }

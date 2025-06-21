@@ -38,7 +38,6 @@ router.post("/login", async (req, res) => {
 
 router.get("/check-auth", (req, res) => {
   const token = req.cookies.adminToken;
-  console.log("aici");
 
   if (!token)
     return res

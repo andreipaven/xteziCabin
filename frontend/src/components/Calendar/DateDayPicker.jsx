@@ -133,11 +133,7 @@ export default function DateDayPicker({ onSelectDate }) {
     return days;
   };
 
-  useEffect(() => {
-    // console.log("refresh intern");
-    // console.log(twoConsecutiveDays);
-    // console.log(uniqueBookedDaysForCalendar);
-  }, [twoConsecutiveDays]);
+  useEffect(() => {}, [twoConsecutiveDays]);
 
   useEffect(() => {
     fetchGetBookings().then((result) => {

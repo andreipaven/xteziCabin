@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import themeColors from "../../Theme/themeColors.jsx";
 
 export default function CustomInputField({
   size,

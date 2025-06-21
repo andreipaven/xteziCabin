@@ -54,7 +54,7 @@ const navItems = [
   },
 ];
 
-function MobileNavBar({ display }) {
+function MobileNavBar() {
   const navigate = useNavigate();
   const location = useLocation();
   const { isSmallScreen } = useResponsive();
