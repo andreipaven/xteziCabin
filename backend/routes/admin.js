@@ -25,19 +25,19 @@ router.post("/login", async (req, res) => {
     return res.status(201).json({ success: false, message: "Date invalide." });
   }
 
-  const token = jwt.sign({ isAdmin: true }, JWT_SECRET, { expiresIn: "5h" });
+  const token = jwt.sign({ sobolan: true }, JWT_SECRET, { expiresIn: "2h" });
   res
-    .cookie("adminToken", token, {
+    .cookie("sobolan", token, {
       httpOnly: true,
       secure: true, // set true în production (HTTPS)
       sameSite: "strict",
-      maxAge: 5 * 60 * 60 * 1000, // 5h
+      maxAge: 2 * 60 * 60 * 1000, // 5h
     })
     .json({ success: true, message: "Autentificare reușită." });
 });
 
 router.get("/check-auth", (req, res) => {
-  const token = req.cookies.adminToken;
+  const token = req.cookies.sobolan;
 
   if (!token)
     return res
