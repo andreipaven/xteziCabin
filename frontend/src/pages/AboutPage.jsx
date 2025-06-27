@@ -209,14 +209,14 @@ function AboutPage() {
             variant={"masonry"}
             gap={16}
             cols={isSmallScreen ? 2 : 3}
-            sx={{ alignItems: "center", overflow: "hidden" }}
+            sx={{ alignItems: "center", overflow: "hidden", padding: "1em" }}
           >
             {galleryItems.map((item, index) => (
               <MotionImageListItem
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.6 }}
                 transition={{ duration: 0.5, delay: index * 0.01 }}
               >
                 <img

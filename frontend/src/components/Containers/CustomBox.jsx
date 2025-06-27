@@ -1,6 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
+import useResponsive from "../Hooks/UseResponsive.jsx";
 
 const MotionBox = motion(Box);
 
@@ -12,7 +13,7 @@ function CustomBox({
   initial = { opacity: 0, y: 50 },
   whileInView = { opacity: 1, y: 0 },
   transition = { duration: 0.5 },
-  viewport = { once: true, amount: 0.2 },
+  viewport = { once: true, amount: 0.3 },
   //styles
   alignItems,
   gap,

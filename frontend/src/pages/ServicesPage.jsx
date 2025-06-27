@@ -208,7 +208,6 @@ function ServicesPage() {
               justifyContent={"start"}
               animateOnScroll
               animationPreset={animationPresets.fadeUp}
-              viewport={{ once: true, amount: 0.5 }}
             >
               <Typography width={"100%"} height={"3em"}>
                 {item.icon}

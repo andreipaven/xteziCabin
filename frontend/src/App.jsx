@@ -12,6 +12,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import CookieBanner from "./components/Cookies/CookieBanner.jsx";
+import { v4 as uuidv4 } from "uuid";
+import { fetchTrackVisit } from "./Services/visitService.js";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -24,9 +27,25 @@ function ScrollToTop() {
 }
 
 function App() {
+  useEffect(() => {
+    let visitorId = localStorage.getItem("visitor_id");
+    if (!visitorId) {
+      visitorId = uuidv4();
+      localStorage.setItem("visitor_id", visitorId);
+    }
+
+    const visitDate = new Date().toISOString().slice(0, 10);
+
+    fetchTrackVisit({ visitor_id: visitorId, visit_date: visitDate }).then(
+      (result) => {
+        console.log(result);
+      },
+    );
+  }, []);
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <CookieBanner />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/about" element={<AboutPage />} />

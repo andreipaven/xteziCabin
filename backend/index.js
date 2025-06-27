@@ -5,6 +5,7 @@ const express = require("express");
 const adminRoutes = require("./routes/admin");
 const bookingRoutes = require("./routes/booking");
 const emailRoutes = require("./routes/email");
+const visitRoutes = require("./routes/visit");
 
 //PORT
 const app = express();
@@ -36,6 +37,7 @@ app.use(cookieParser());
 app.use("/api/admin", adminRoutes);
 app.use("/api/booking", bookingRoutes);
 app.use("/api/email", emailRoutes);
+app.use("/api/visit", visitRoutes);
 
 //db connection
 
