@@ -11,7 +11,7 @@ function CookieBanner() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 2000);
+    }, 5000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -38,6 +38,7 @@ function CookieBanner() {
       }}
       buttonStyle={{
         backgroundColor: themeColors.palette.primary.contrastText,
+        border: `2px solid ${themeColors.palette.primary.contrastText}`,
         fontSize: "1em",
         borderRadius: "11em",
         padding: ".5em 1em",
