@@ -63,9 +63,9 @@ function HomePage() {
         backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${bgHomeFirstBox})`}
         color={themeColor.palette.primary.contrastText}
         minHeight={"20em"}
-        animateOnLoad
-        animationPreset={animationPresets.fadeIn}
-        transition={" duration: 0.3"}
+        // animateOnLoad
+        // animationPreset={animationPresets.fadeIn}
+        // transition={" duration: 0.3"}
       >
         <Typography>Relaxare la munte, liniste abosluta</Typography>
         <Typography fontSize={"2em"} fontWeight={"bold"}>
