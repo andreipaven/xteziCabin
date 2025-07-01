@@ -3,8 +3,8 @@ import { Box, styled, Typography } from "@mui/material";
 import bgHomeFirstBox from "../assets/bgHomeFirstBox.webp";
 import bgHomeSecondBox from "../assets/bgHomeSecondBox.jpg";
 import quotes from "../assets/quotes.png";
-import offer1 from "../assets/adventure3.jpg";
-import offer2 from "../assets/adventure3.jpg";
+import offer1 from "../assets/adventure3.webp";
+import offer2 from "../assets/adventure3.webp";
 import adventure1 from "../assets/adventure1.jpg";
 import adventure2 from "../assets/adventure2.jpg";
 import adventure3 from "../assets/adventure3.jpg";
@@ -63,9 +63,8 @@ function HomePage() {
         backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${bgHomeFirstBox})`}
         color={themeColor.palette.primary.contrastText}
         minHeight={"20em"}
-        // animateOnLoad
-        // animationPreset={animationPresets.fadeIn}
-        // transition={" duration: 0.3"}
+        animateOnLoad
+        animationPreset={animationPresets.fadeIn}
       >
         <Typography>Relaxare la munte, liniste abosluta</Typography>
         <Typography fontSize={"2em"} fontWeight={"bold"}>
