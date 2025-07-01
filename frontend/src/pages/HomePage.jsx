@@ -65,6 +65,7 @@ function HomePage() {
         minHeight={"20em"}
         animateOnLoad
         animationPreset={animationPresets.fadeIn}
+        transition={" duration: 0.3"}
       >
         <Typography>Relaxare la munte, liniste abosluta</Typography>
         <Typography fontSize={"2em"} fontWeight={"bold"}>
