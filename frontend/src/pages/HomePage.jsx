@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, styled, Typography } from "@mui/material";
-import bgHomeFirstBox from "../assets/bgHomeFirstBox.jpg";
+import bgHomeFirstBox from "../assets/bgHomeFirstBox.webp";
 import bgHomeSecondBox from "../assets/bgHomeSecondBox.jpg";
 import quotes from "../assets/quotes.png";
 import offer1 from "../assets/adventure3.jpg";

@@ -10,38 +10,57 @@ import AdminLogin from "./components/Admin/AdminLogin.jsx";
 import AdminPanel from "./components/Admin/AdminPanel.jsx";
 import "react-toastify/dist/ReactToastify.css";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import CookieBanner from "./components/Cookies/CookieBanner.jsx";
 import { v4 as uuidv4 } from "uuid";
 import { fetchTrackVisit } from "./Services/visitService.js";
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
+import Cookies from "js-cookie";
+import AdminHomePage from "./components/Admin/adminPages/AdminHomePage.jsx";
 
 function App() {
+  const [cookieConsent, setCookieConsent] = useState(() =>
+    Cookies.get("CookieConsent"),
+  );
+
+  function ScrollToTop() {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
+  }
+
   useEffect(() => {
-    let visitorId = localStorage.getItem("visitor_id");
-    if (!visitorId) {
-      visitorId = uuidv4();
-      localStorage.setItem("visitor_id", visitorId);
+    const interval = setInterval(() => {
+      const consent = Cookies.get("CookieConsent");
+      if (consent && consent !== cookieConsent) {
+        setCookieConsent(consent);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [cookieConsent]);
+
+  useEffect(() => {
+    if (cookieConsent) {
+      let visitorId = localStorage.getItem("visitor_id");
+      if (!visitorId) {
+        visitorId = uuidv4();
+        localStorage.setItem("visitor_id", visitorId);
+      }
+
+      const visitDate = new Date().toISOString().slice(0, 10);
+
+      fetchTrackVisit({ visitor_id: visitorId, visit_date: visitDate }).then(
+        (result) => {
+          console.log(result);
+        },
+      );
     }
-
-    const visitDate = new Date().toISOString().slice(0, 10);
-
-    fetchTrackVisit({ visitor_id: visitorId, visit_date: visitDate }).then(
-      (result) => {
-        console.log(result);
-      },
-    );
-  }, []);
+  }, [cookieConsent]);
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -52,9 +71,10 @@ function App() {
         <Route path="/shop" element={<BookingPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<ServicesPage />} />
-
         <Route path="/admin-login-11marian!" element={<AdminLogin />} />
-        <Route path="/admin-panel-macarie@23" element={<AdminPanel />} />
+        <Route path="/admin-panel-macarie@23" element={<AdminPanel />}>
+          <Route index element={<AdminHomePage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
