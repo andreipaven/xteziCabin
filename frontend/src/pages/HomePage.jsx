@@ -77,7 +77,7 @@ function HomePage() {
         animateOnLoad
         animationPreset={animationPresets.zoom}
       >
-        <QuoteImg src={quotes} alt="Quotes icon" />
+        {/*<QuoteImg src={quotes} alt="Quotes icon" />*/}
         <CustomTypography animateOnLoad animationPreset={animationPresets.zoom}>
           "Cabanele noastre nu oferă doar cazare, ci experiențe."
         </CustomTypography>
