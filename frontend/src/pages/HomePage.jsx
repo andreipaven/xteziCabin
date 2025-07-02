@@ -63,8 +63,8 @@ function HomePage() {
         backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${bgHomeFirstBox})`}
         color={themeColor.palette.primary.contrastText}
         minHeight={"20em"}
-        // animateOnLoad
-        // animationPreset={animationPresets.fadeIn}
+        animateOnLoad
+        animationPreset={animationPresets.fadeIn}
         backgroundSize={"cover"}
         backgroundPosition={"center"}
         backgroundRepeat={"no-repeat"}
@@ -73,14 +73,14 @@ function HomePage() {
         <Typography fontSize={"2em"} fontWeight={"bold"}>
           *****
         </Typography>
-        {/*<Button value={"INCHIRIAZA ACUM"}  />*/}
+        {/*<Button value={"REZERVA ACUM"}  />*/}
       </CustomBox>
       <CustomBox
         padding={isSmallScreen ? "1em" : "3em 3em"}
         animateOnLoad
         animationPreset={animationPresets.zoom}
       >
-        {/*<QuoteImg src={quotes} alt="Quotes icon" />*/}
+        <QuoteImg src={quotes} alt="Quotes icon" />
         <CustomTypography animateOnLoad animationPreset={animationPresets.zoom}>
           "Cabanele noastre nu oferă doar cazare, ci experiențe."
         </CustomTypography>
@@ -108,7 +108,7 @@ function HomePage() {
             borderRadius={"1em"}
             justifyContent={"space-between"}
           >
-            {/*<OfferImg src={offer1} alt="Quotes icon" />*/}
+            <OfferImg src={offer1} alt="Quotes icon" />
             <Typography>
               Super oferta!!! In data de 27-29 iunie 2025 facem reducere 20%
             </Typography>
@@ -121,7 +121,7 @@ function HomePage() {
             borderRadius={"1em"}
             justifyContent={"space-between"}
           >
-            {/*<OfferImg src={offer2} alt="Quotes icon" />*/}
+            <OfferImg src={offer2} alt="Quotes icon" />
             <Typography>
               Aduna-ti prietenii si petreceti la noi cu 10% reducere in wekendul
               acesta!
@@ -132,7 +132,7 @@ function HomePage() {
       <CustomBox
         alignItems={isExtraLargeScreen ? "end" : "center"}
         color={themeColor.palette.primary.contrastText}
-        // backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${bgHomeSecondBox})`}
+        backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${bgHomeSecondBox})`}
         padding={"10em 0em"}
       >
         <CustomBox
@@ -211,38 +211,38 @@ function HomePage() {
           width={isSmallScreen ? "100%" : "60%"}
           gap={"1em"}
         >
-          {/*<GalleryImg*/}
-          {/*  initial={{ opacity: 0, x: -50 }}*/}
-          {/*  whileInView={{ opacity: 1, x: 0 }}*/}
-          {/*  viewport={{ once: true, amount: 0.2 }}*/}
-          {/*  transition={{ duration: 0.5 }}*/}
-          {/*  src={adventure1}*/}
-          {/*  alt={"Missing image"}*/}
-          {/*/>*/}
-          {/*<GalleryImg*/}
-          {/*  initial={{ opacity: 0, x: 50 }}*/}
-          {/*  whileInView={{ opacity: 1, x: 0 }}*/}
-          {/*  viewport={{ once: true, amount: 0.2 }}*/}
-          {/*  transition={{ duration: 0.5 }}*/}
-          {/*  src={adventure2}*/}
-          {/*  alt={"Missing image"}*/}
-          {/*/>*/}
-          {/*<GalleryImg*/}
-          {/*  initial={{ opacity: 0, x: -50 }}*/}
-          {/*  whileInView={{ opacity: 1, x: 0 }}*/}
-          {/*  viewport={{ once: true, amount: 0.2 }}*/}
-          {/*  transition={{ duration: 0.5 }}*/}
-          {/*  src={adventure3}*/}
-          {/*  alt={"Missing image"}*/}
-          {/*/>*/}
-          {/*<GalleryImg*/}
-          {/*  initial={{ opacity: 0, x: 50 }}*/}
-          {/*  whileInView={{ opacity: 1, x: 0 }}*/}
-          {/*  viewport={{ once: true, amount: 0.2 }}*/}
-          {/*  transition={{ duration: 0.5 }}*/}
-          {/*  src={adventure4}*/}
-          {/*  alt={"Missing image"}*/}
-          {/*/>*/}
+          <GalleryImg
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            src={adventure1}
+            alt={"Missing image"}
+          />
+          <GalleryImg
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            src={adventure2}
+            alt={"Missing image"}
+          />
+          <GalleryImg
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            src={adventure3}
+            alt={"Missing image"}
+          />
+          <GalleryImg
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            src={adventure4}
+            alt={"Missing image"}
+          />
         </CustomBox>
       </CustomBox>
       <Footer />
