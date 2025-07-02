@@ -65,6 +65,9 @@ function HomePage() {
         minHeight={"20em"}
         animateOnLoad
         animationPreset={animationPresets.fadeIn}
+        backgroundSize={"cover"}
+        backgroundPosition={"center"}
+        backgroundRepeat={"no-repeat"}
       >
         <Typography>Relaxare la munte, liniste abosluta</Typography>
         <Typography fontSize={"2em"} fontWeight={"bold"}>
