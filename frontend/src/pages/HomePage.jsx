@@ -63,8 +63,8 @@ function HomePage() {
         backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${bgHomeFirstBox})`}
         color={themeColor.palette.primary.contrastText}
         minHeight={"20em"}
-        animateOnLoad
-        animationPreset={animationPresets.fadeIn}
+        // animateOnLoad
+        // animationPreset={animationPresets.fadeIn}
         backgroundSize={"cover"}
         backgroundPosition={"center"}
         backgroundRepeat={"no-repeat"}
