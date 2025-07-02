@@ -60,7 +60,7 @@ function HomePage() {
     <HomeBox>
       <Header />
       <CustomBox
-        // backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${bgHomeFirstBox})`}
+        backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${bgHomeFirstBox})`}
         color={themeColor.palette.primary.contrastText}
         minHeight={"20em"}
         animateOnLoad
