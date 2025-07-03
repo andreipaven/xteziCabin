@@ -34,13 +34,28 @@ app.use(express.json());
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 
-//Strict-Transport-Security
+//Security
 app.use(helmet());
 app.use(
   helmet.hsts({
     maxAge: 63072000,
     includeSubDomains: true,
     preload: true,
+  }),
+);
+
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      imgSrc: ["'self'", "data:", "https://purecatamphetamine.github.io"],
+      connectSrc: ["'self'"],
+      fontSrc: ["'self'"],
+      objectSrc: ["'none'"],
+      frameSrc: ["'none'"],
+    },
   }),
 );
 
