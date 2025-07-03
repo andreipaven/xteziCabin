@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
+const helmet = require("helmet");
 
 const adminRoutes = require("./routes/admin");
 const bookingRoutes = require("./routes/booking");
@@ -32,6 +33,16 @@ app.use(express.json());
 //cookies
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
+
+//Strict-Transport-Security
+app.use(helmet());
+app.use(
+  helmet.hsts({
+    maxAge: 63072000,
+    includeSubDomains: true,
+    preload: true,
+  }),
+);
 
 // routes
 app.use("/api/admin", adminRoutes);
