@@ -59,6 +59,9 @@ function AboutPage() {
     {
       src: adventure2,
     },
+    {
+      src: adventure4,
+    },
   ];
 
   return (
