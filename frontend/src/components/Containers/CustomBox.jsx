@@ -1,7 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
-import useResponsive from "../Hooks/UseResponsive.jsx";
 
 const MotionBox = motion(Box);
 
