@@ -77,7 +77,7 @@ function Footer() {
         justifyContent: "center",
         display: "flex",
         textAlign: "center",
-        marginBottom: isSmallScreen ? "5.8em" : 0,
+        // marginBottom: isSmallScreen ? "5.8em" : 0,
       }}
     >
       <CustomBox

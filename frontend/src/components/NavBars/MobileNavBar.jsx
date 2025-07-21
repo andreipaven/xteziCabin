@@ -63,6 +63,8 @@ function MobileNavBar() {
     const current = navItems.find((item) => item.path === location.pathname);
     return current ? current.key : "home";
   });
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const current = navItems.find((item) => item.path === location.pathname);
@@ -70,6 +72,21 @@ function MobileNavBar() {
       setSelected(current.key);
     }
   }, [location.pathname, selected]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY + 5) {
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY - 5) {
+        setIsVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
     <Box
@@ -85,6 +102,8 @@ function MobileNavBar() {
         padding: "0.5em 1em 2em 1em",
         boxShadow: "0 -1px 5px rgba(0,0,0,0.1)",
         zIndex: "999",
+        transform: isVisible ? "translateY(0)" : "translateY(100%)",
+        transition: "transform 0.3s ease-in-out",
       }}
     >
       {navItems.map(({ key, label, path, iconActive, iconInactive }) => (

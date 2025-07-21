@@ -254,7 +254,6 @@ function BookingPage() {
               <Typography
                 sx={{
                   animation: `${smokeToLeft} 3s infinite`,
-
                   transform: "scaleX(-1)",
                 }}
               >
