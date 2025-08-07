@@ -65,7 +65,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <CookieBanner />
+      {/*<CookieBanner />*/}
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/about" element={<AboutPage />} />
