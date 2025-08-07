@@ -17,6 +17,7 @@ import { v4 as uuidv4 } from "uuid";
 import { fetchTrackVisit } from "./Services/visitService.js";
 import Cookies from "js-cookie";
 import AdminHomePage from "./components/Admin/adminPages/AdminHomePage.jsx";
+import WeddingPage from "./Ema/WeddingPage.jsx";
 
 function App() {
   const [cookieConsent, setCookieConsent] = useState(() =>
@@ -75,6 +76,7 @@ function App() {
         <Route path="/admin-panel-macarie@23" element={<AdminPanel />}>
           <Route index element={<AdminHomePage />} />
         </Route>
+        <Route path="/wedding" element={<WeddingPage />} />
       </Routes>
     </BrowserRouter>
   );
