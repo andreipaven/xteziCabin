@@ -4,9 +4,10 @@ import CustomInputField from "../components/Inputs/CustomInput.jsx";
 import CustomTypography from "../components/Containers/CustomTypography.jsx";
 import SearchIcon from "@mui/icons-material/Search";
 import { fetchGetWeddingGuests } from "./weddingService.js";
+import { Box, Typography } from "@mui/material";
 
 function WeddingPage() {
-  const [weddingGuests, setWeddingGuests] = useState([]);
+  const [weddingGuests, setWeddingGuests] = useState([]); // obiecte complete
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -14,8 +15,8 @@ function WeddingPage() {
     fetchGetWeddingGuests()
       .then((result) => {
         if (result.success) {
-          const guestNames = result.result.rows.map((guest) => guest.name);
-          setWeddingGuests(guestNames);
+          // Setăm obiectele complete (nu doar numele)
+          setWeddingGuests(result.result.rows);
         } else {
           console.log(result.message);
         }
@@ -28,8 +29,9 @@ function WeddingPage() {
       });
   }, []);
 
-  const filteredGuests = weddingGuests.filter((name) =>
-    name.toLowerCase().includes(searchTerm.toLowerCase()),
+  // Filtrare după nume, case insensitive
+  const filteredGuests = weddingGuests.filter((guest) =>
+    guest.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -37,37 +39,55 @@ function WeddingPage() {
       {loading ? (
         "Imediat se incarca..."
       ) : (
-        <CustomBox>
+        <CustomBox
+          background={"linear-gradient( #F693EBFF, #fff)"}
+          minHeight={"100vh"}
+          justifyContent={"start"}
+          color={"#fff"}
+        >
           <CustomBox maxWidth={"100em"} padding={"1em"}>
             <CustomBox gap={"1em"}>
               <CustomTypography
                 fontSize={"2em"}
                 fontWeight={"bold"}
                 textAlign={"center"}
+                color={"#ffffff"}
               >
-                Bine ati venit la nunta!
+                Bine ați venit la nuntă! 👰🤵
               </CustomTypography>
               <CustomInputField
                 fullWidth={true}
                 variant={"standard"}
                 label={"Nume"}
-                inputIcon={<SearchIcon />}
-                borderColor={"pink"}
+                inputIcon={<SearchIcon sx={{ color: "#fff" }} />}
+                borderColor={"#fff"}
+                color={"#fff"}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
 
-              {/* Afișăm lista doar dacă searchTerm NU e gol */}
               {searchTerm !== "" && (
-                <CustomBox>
+                <CustomBox marginTop="1em">
                   {filteredGuests.length > 0 ? (
-                    filteredGuests.map((name, index) => (
-                      <div key={index}>{name}</div>
+                    filteredGuests.map((guest, index) => (
+                      <CustomBox
+                        alignItems={"start"}
+                        justifyContent={"start"}
+                        key={index}
+                        flexDirection={"row"}
+                        gap={"1em"}
+                      >
+                        {/* exemplu: afișează numele și masa */}
+                        <Typography fontSize={"1.2em"}>{guest.name}</Typography>
+                        <Typography fontSize={"1.2em"} fontWeight={"bold"}>
+                          2{guest.table_guest}
+                        </Typography>
+                      </CustomBox>
                     ))
                   ) : (
                     <div>
                       Nu există invitați care să corespundă. Numele de familie
-                      in fata!
+                      în față!
                     </div>
                   )}
                 </CustomBox>

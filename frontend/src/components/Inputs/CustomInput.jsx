@@ -15,6 +15,7 @@ export default function CustomInputField({
   defaultValue,
   backgroundColor,
   variant,
+  color,
   ...rest
 }) {
   const [showPassword, setShowPassword] = useState(type === "password");
@@ -39,6 +40,9 @@ export default function CustomInputField({
       {...rest}
       sx={{
         backgroundColor: backgroundColor,
+        "& input": {
+          color: color,
+        },
         "& .MuiOutlinedInput-root": {
           borderRadius: ".2em",
 
