@@ -7,6 +7,7 @@ const adminRoutes = require("./routes/admin");
 const bookingRoutes = require("./routes/booking");
 const emailRoutes = require("./routes/email");
 const visitRoutes = require("./routes/visit");
+const weddingRoutes = require("./routes/wedding");
 
 //PORT
 const app = express();
@@ -64,6 +65,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/booking", bookingRoutes);
 app.use("/api/email", emailRoutes);
 app.use("/api/visit", visitRoutes);
+app.use("/api/wedding", weddingRoutes);
 
 //db connection
 
