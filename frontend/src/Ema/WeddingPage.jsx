@@ -29,10 +29,11 @@ function WeddingPage() {
       });
   }, []);
 
-  // Filtrare după nume, case insensitive
-  const filteredGuests = weddingGuests.filter((guest) =>
-    guest.name.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const filteredGuests = weddingGuests.filter((guest) => {
+    const guestName = guest.name.toLowerCase();
+    const searchWords = searchTerm.toLowerCase().split(" ");
+    return searchWords.every((word) => guestName.includes(word));
+  });
 
   return (
     <div>
