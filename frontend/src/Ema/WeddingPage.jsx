@@ -41,7 +41,8 @@ function WeddingPage() {
         "Imediat se incarca..."
       ) : (
         <CustomBox
-          background={"linear-gradient( #F693EBFF, #fff)"}
+          background={"linear-gradient( #F693EBFF, #ff0083)"}
+          s
           minHeight={"100vh"}
           justifyContent={"start"}
           color={"#fff"}
