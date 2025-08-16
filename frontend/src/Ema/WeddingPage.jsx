@@ -18,6 +18,7 @@ function WeddingPage() {
         if (result.success) {
           // Setăm obiectele complete (nu doar numele)
           setWeddingGuests(result.result.rows);
+          console.log(result.result.rows);
         } else {
           console.log(result.message);
         }
@@ -208,7 +209,7 @@ function WeddingPage() {
                         {/* exemplu: afișează numele și masa */}
                         <Typography fontSize={"1.2em"}>{guest.name}</Typography>
                         <Typography fontSize={"1.2em"} fontWeight={"bold"}>
-                          2{guest.table_guest}
+                          masa - {guest.guest_table}
                         </Typography>
                       </CustomBox>
                     ))
