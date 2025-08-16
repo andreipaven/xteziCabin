@@ -18,7 +18,6 @@ function WeddingPage() {
         if (result.success) {
           // Setăm obiectele complete (nu doar numele)
           setWeddingGuests(result.result.rows);
-          console.log(result.result.rows);
         } else {
           console.log(result.message);
         }
