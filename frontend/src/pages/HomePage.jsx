@@ -55,7 +55,7 @@ const GalleryImg = motion(
 );
 
 function HomePage() {
-  const { isSmallScreen, isExtraLargeScreen } = useResponsive();
+  const { isSmallScreen, isExtraLargeScreen, isMediumScreen } = useResponsive();
   return (
     <HomeBox>
       <Header />
@@ -95,10 +95,18 @@ function HomePage() {
 
         <CustomBox
           display="grid"
-          gridTemplateColumns={isSmallScreen ? "1fr" : "1fr 1fr"}
+          gridTemplateColumns={
+            isSmallScreen
+              ? "1fr"
+              : isMediumScreen
+                ? "repeat(2,1fr)"
+                : "repeat(4,1fr)"
+          }
           maxWidth={"100em"}
+          width={"fit-content"}
           gap={"2em"}
           alignItems={"start"}
+          placeItems={"center"}
         >
           <CustomBox
             animateOnScroll
@@ -107,6 +115,7 @@ function HomePage() {
             padding={"1em"}
             borderRadius={"1em"}
             justifyContent={"space-between"}
+            // width={"50%"}
           >
             <OfferImg src={offer1} alt="Quotes icon" />
             <Typography>
@@ -120,6 +129,35 @@ function HomePage() {
             padding={"1em"}
             borderRadius={"1em"}
             justifyContent={"space-between"}
+            // width={"50%"}
+          >
+            <OfferImg src={offer1} alt="Quotes icon" />
+            <Typography>
+              Super oferta!!! In data de 27-29 iunie 2025 facem reducere 20%
+            </Typography>
+          </CustomBox>
+          <CustomBox
+            animateOnScroll
+            animationPreset={animationPresets.fadeUp}
+            boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px;"}
+            padding={"1em"}
+            borderRadius={"1em"}
+            justifyContent={"space-between"}
+            // width={"50%"}
+          >
+            <OfferImg src={offer1} alt="Quotes icon" />
+            <Typography>
+              Super oferta!!! In data de 27-29 iunie 2025 facem reducere 20%
+            </Typography>
+          </CustomBox>
+          <CustomBox
+            animateOnScroll
+            animationPreset={animationPresets.fadeUp}
+            boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px;"}
+            padding={"1em"}
+            borderRadius={"1em"}
+            justifyContent={"space-between"}
+            // width={"50%"}
           >
             <OfferImg src={offer2} alt="Quotes icon" />
             <Typography>
