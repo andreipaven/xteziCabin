@@ -65,7 +65,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <CookieBanner />
+      {/*<CookieBanner />*/}
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/about" element={<AboutPage />} />
@@ -76,7 +76,7 @@ function App() {
         <Route path="/admin-panel-macarie@23" element={<AdminPanel />}>
           <Route index element={<AdminHomePage />} />
         </Route>
-        {/*<Route path="/wedding" element={<WeddingPage />} />*/}
+        <Route path="/wedding" element={<WeddingPage />} />
       </Routes>
     </BrowserRouter>
   );
