@@ -34,34 +34,34 @@ function App() {
     return null;
   }
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const consent = Cookies.get("CookieConsent");
-      if (consent && consent !== cookieConsent) {
-        setCookieConsent(consent);
-      }
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [cookieConsent]);
-
-  useEffect(() => {
-    if (cookieConsent) {
-      let visitorId = localStorage.getItem("visitor_id");
-      if (!visitorId) {
-        visitorId = uuidv4();
-        localStorage.setItem("visitor_id", visitorId);
-      }
-
-      const visitDate = new Date().toISOString().slice(0, 10);
-
-      fetchTrackVisit({ visitor_id: visitorId, visit_date: visitDate }).then(
-        (result) => {
-          console.log(result);
-        },
-      );
-    }
-  }, [cookieConsent]);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     const consent = Cookies.get("CookieConsent");
+  //     if (consent && consent !== cookieConsent) {
+  //       setCookieConsent(consent);
+  //     }
+  //   }, 1000);
+  //
+  //   return () => clearInterval(interval);
+  // }, [cookieConsent]);
+  //
+  // useEffect(() => {
+  //   if (cookieConsent) {
+  //     let visitorId = localStorage.getItem("visitor_id");
+  //     if (!visitorId) {
+  //       visitorId = uuidv4();
+  //       localStorage.setItem("visitor_id", visitorId);
+  //     }
+  //
+  //     const visitDate = new Date().toISOString().slice(0, 10);
+  //
+  //     fetchTrackVisit({ visitor_id: visitorId, visit_date: visitDate }).then(
+  //       (result) => {
+  //         console.log(result);
+  //       },
+  //     );
+  //   }
+  // }, [cookieConsent]);
   return (
     <BrowserRouter>
       <ScrollToTop />
