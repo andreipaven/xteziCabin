@@ -4,7 +4,7 @@ const db = require("../db");
 
 router.post("/get", async (req, res) => {
   try {
-    const sql = "SELECT * FROM wedding_guests";
+    const sql = "SELECT * FROM wedding_guests order by name";
     const results = await db.query(sql);
 
     if (!results) {
