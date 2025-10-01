@@ -196,6 +196,7 @@ function BookingPage() {
         fetchAddBooking(bookingData).then((result) => {
           if (result.success) {
             notify(result.message);
+
             fetchSendBookingEmail(inputEmail, messageEmail).then(
               (resultEmail) => {
                 if (resultEmail.success) {

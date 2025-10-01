@@ -1,5 +1,5 @@
 const ip = import.meta.env.VITE_URL;
-
+const port = import.meta.env.VITE_PORT;
 export const fetchAddBooking = async (body) => {
   try {
     const response = await fetch(`https://${ip}/api/booking/add`, {

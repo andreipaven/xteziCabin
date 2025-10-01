@@ -11,7 +11,7 @@ router.post("/send-email-booking", async (req, res) => {
     res.status(200).json({ message: "Email trimis cu succes" });
   } catch (error) {
     console.error("Error to sent email:", error);
-    res.status(500).send("Error to sent email!");
+    res.status(500).send("Error to sent email!" + error);
   }
 });
 

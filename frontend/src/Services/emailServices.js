@@ -1,4 +1,5 @@
 const ip = import.meta.env.VITE_URL;
+const port = import.meta.env.VITE_PORT;
 
 export const fetchSendBookingEmail = async (userEmail, messageEmail) => {
   try {
