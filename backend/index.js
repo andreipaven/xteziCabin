@@ -87,9 +87,9 @@ db.connect()
 app.get("/hia", (req, res) => {
   res.json({ status: "Backend is working!" });
 });
-const path = require("path");
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-app.get(/^\/(?!api).*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-});
+// const path = require("path");
+// app.use(express.static(path.join(__dirname, "../frontend/dist")));
+//
+// app.get(/^\/(?!api).*/, (req, res) => {
+//   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+// });
