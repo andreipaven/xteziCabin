@@ -25,6 +25,7 @@ app.use(
       "http://localhost:4173",
       "http://localhost:4000",
       `${ip}`,
+        process.env.FRONTEND_URL,
     ],
     credentials: true,
   }),
@@ -84,9 +85,9 @@ db.connect()
     process.exit(1);
   });
 
-app.get("/hia", (req, res) => {
-  res.json({ status: "Backend is working!" });
-});
+// app.get("/hia", (req, res) => {
+//   res.json({ status: "Backend is working!" });
+// });
 // const path = require("path");
 // app.use(express.static(path.join(__dirname, "../frontend/dist")));
 //
