@@ -1,11 +1,3 @@
-My first application built using React for the UI and Express for the backend server. The project uses Vite for optimization and faster development/build performance.
-
-The application is a booking system for a cabin, with a database connection to Supabase for data storage and management.
-
-The frontend is deployed on Vercel, while the backend server is hosted on Render.
-
-
-
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
