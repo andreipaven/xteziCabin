@@ -30,7 +30,7 @@ require("dotenv").config();
 
 const dbClient = new Client({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
+  // ssl: { rejectUnauthorized: false },
 });
 
 module.exports = dbClient;

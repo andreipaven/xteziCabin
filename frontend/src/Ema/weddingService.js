@@ -2,7 +2,7 @@ const ip = import.meta.env.VITE_URL;
 
 export const fetchGetWeddingGuests = async () => {
   try {
-    const response = await fetch(`https://${ip}/api/wedding/get`, {
+    const response = await fetch(`${ip}/api/wedding/get`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
