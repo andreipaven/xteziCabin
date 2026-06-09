@@ -11,8 +11,8 @@
 // });
 //
 // module.exports = pool;
-
-// render db
+//
+// // render db
 // const dbClient = new Client({
 //   host: process.env.DB_HOST,
 //   user: process.env.DB_USER,
@@ -24,13 +24,13 @@
 //   },
 // });
 
-//supabase connection
+// supabase connection
 const { Client } = require("pg");
 require("dotenv").config();
 
 const dbClient = new Client({
   connectionString: process.env.DATABASE_URL,
-  // ssl: { rejectUnauthorized: false },
+  ssl: { rejectUnauthorized: false },
 });
 
 module.exports = dbClient;
